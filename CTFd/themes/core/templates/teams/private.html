@@ -257,6 +257,7 @@
 								<td class="d-none d-md-block d-lg-block"><b>Category</b></td>
 								<td><b>Value</b></td>
 								<td><b>Time</b></td>
+								<td><b>Flag</b></td>
 							</tr>
 							</thead>
 							<tbody>
@@ -271,6 +272,11 @@
 										<script>
                                             document.write(moment("{{ solve.date | isoformat }}").local().format('MMMM Do, h:mm:ss A'))
 										</script>
+									</td>
+									<td>
+										{% for flag in solve.challenge.flags %}
+											<p>{{ flag.content }}</p>
+										{% endfor %} 
 									</td>
 								</tr>
 							{% endfor %}
